@@ -85,7 +85,7 @@ class Lost:
         self.img_file1 = self.img_file1.resize((110,60))
         self.img_file1 = ImageTk.PhotoImage(self.img_file1)
 
-        self.b3 = Button(window,text = "Exit",font = ('Eczar 20'), command = self.exit1)
+        self.b3 = Button(window,text = "Back",font = ('Eczar 20'), command = self.exit1)
         
         self.b3.place(x=0,y=560)
 
@@ -118,12 +118,14 @@ class Found:
         self.img_file1 = self.img_file1.resize((110,60))
         self.img_file1 = ImageTk.PhotoImage(self.img_file1)
 
-        self.b4 = Button(window,text = "Exit",font = ('Eczar 20'), border = 0, highlightthickness=0, command = self.exit1)
+        self.b4 = Button(window,text = "Back",font = ('Eczar 20'), border = 0, highlightthickness=0, command = self.exit1)
         self.b4.place(x=0,y=560)
 
     def exit1(self):
-        self.b4.destroy()
-        window.destroy()
+        self.b4.place_forget()
+        self.item_entry.place_forget()
+        self.continue_button.place_forget()
+        Home2(window)
 
     def item_name_collection(self):
 
