@@ -1,5 +1,4 @@
 from tkinter import *
-
 from PIL import Image, ImageTk
 global item_list
 item_list = []
@@ -82,16 +81,17 @@ class Lost:
            
 
         self.img_file1 = Image.open("exit.png")
-        self.img_file1 = self.img_file1.resize((110,60))
+        self.img_file1 = self.img_file1.resize((110,70))
         self.img_file1 = ImageTk.PhotoImage(self.img_file1)
 
-        self.b3 = Button(window,text = "Back",font = ('Eczar 20'), command = self.exit1)
+        self.b3 = Button(window,text = "Back",font = ('Eczar 20'), command = self.exit1, bg = '#38b6ff')
         
-        self.b3.place(x=0,y=560)
+        self.b3.place(x=0,y=550)
 
     def exit1(self):
         self.b3.place_forget()
         self.w_label.grid_remove()
+        item_list.clear()
         Home2(window)
 
 
@@ -118,8 +118,8 @@ class Found:
         self.img_file1 = self.img_file1.resize((110,60))
         self.img_file1 = ImageTk.PhotoImage(self.img_file1)
 
-        self.b4 = Button(window,text = "Back",font = ('Eczar 20'), border = 0, highlightthickness=0, command = self.exit1)
-        self.b4.place(x=0,y=560)
+        self.b4 = Button(window,text = "Back",font = ('Eczar 20'), border = 0, highlightthickness=0, command = self.exit1, bg = 'orange')
+        self.b4.place(x=0,y=550)
 
     def exit1(self):
         self.b4.place_forget()
