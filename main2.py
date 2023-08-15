@@ -63,7 +63,7 @@ class Lost:
 
       
         self.w_label = Label(window, font=('Arial 20'))
-        self.w_label.grid(pady=10,padx=5)
+        self.w_label.place(x=10,y=100)
 
         inputFile = open("Item_entry.txt", "r")
         lineList = inputFile.readlines()
@@ -90,7 +90,8 @@ class Lost:
 
     def exit1(self):
         self.b3.place_forget()
-        self.w_label.grid_remove()
+        #self.w_label.grid_remove()
+        self.w_label.place_forget()
         item_list.clear()
         Home2(window)
 
