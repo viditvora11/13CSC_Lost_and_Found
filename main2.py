@@ -2,7 +2,7 @@ from tkinter import *  #importing fies from tkinter
 from PIL import Image, ImageTk #Importing PIL for use of image
 global item_list #allowing to list to be global so it can be used out of the list
 item_list = [] #Items can be stored in this list
-line_list = [] 
+line_list = [] #store items from item list to line list for printing
 from tkinter import messagebox #importing message box to display error messages
 
 #########CLASS HOME START#########
