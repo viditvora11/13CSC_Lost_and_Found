@@ -51,17 +51,15 @@ class Home: #Class used for home page to subclassify the code
 
 #########CLASS LOST START#########      
 class Lost: #Class used for Lost page to subclassify the code
+    listbox = None
+    
     def __init__(self, parent): #Used to internalize the code
         bg_image2 = Image.open("back2.png") #Open background image
         bg_image2 = bg_image2.resize((600,600)) #Resize the backgroud image
         bg_image2 = ImageTk.PhotoImage(bg_image2) #Used to show image with tkinter label
         image_label.configure(image = bg_image2) #Configue the image
         image_label.image=bg_image2 #Label the image
-
-      
-        self.w_label = Label(window, font=('Arial 20')) #Adding label
-        self.w_label.place(x=10,y=100) #Resize the label
-
+        
         inputFile = open("Item_entry.txt", "r") #Open the Item list file
         lineList = inputFile.readlines() #Read items from the file into line list
         
@@ -70,9 +68,11 @@ class Lost: #Class used for Lost page to subclassify the code
 
         lost_string = "" #Adding blank space
         for i in range(len(item_list)):#items in item list
-            lost_string +="{}\n".format(item_list[i]) #
-        print(lost_string)#for testing to show on the console
-        self.w_label.config(text=lost_string) #Configure label
+            lost_string +="{}\n".format(item_list[i]) #Adding items from the list and adding the next item on a new line
+        self.listbox = Listbox(font=('Eczar 27'), justify = "center")
+        self.listbox.place(x=100, y=100)
+        for i in range(len(item_list)):#items in item list #Adding items from the list and adding the next item on a new line
+            self.listbox.insert(0, item_list[i])
         inputFile.close() #Close item list 
 
         self.b3 = Button(window,text = "Back",font = ('Eczar 20'), command = self.exit1, bg = '#38b6ff') #Back button
@@ -81,7 +81,7 @@ class Lost: #Class used for Lost page to subclassify the code
 
     def exit1(self): #Define back button 
         self.b3.place_forget() #Forget b3
-        self.w_label.place_forget() #forget label
+        self.listbox.place_forget() #forget label
         item_list.clear() #Clear item list
         Home2(window) #Run home 2
 ##########CLASS LOST END###########
